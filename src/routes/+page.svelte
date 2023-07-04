@@ -40,9 +40,8 @@
     }
 </script>
 
-<main class="h-screen p-10">
-	
-    <div class="qrImage flex self-center justify-center m-10" />
+<main class="p-10">
+    <div class="qrImage flex m-10" />
 	<div class="h-1/2 flex flex-col items-center justify-center gap-3">
 		<input
 			bind:value={title}
@@ -80,20 +79,20 @@
 			</div>
 		{/if}
 		<button class="btn btn-info" on:click={generateQR}>GENERATE</button>
-
-        <div class="flex flex-row">
+        
+        <div class="flex flex-row mt-10">
             <div class="flex flex-col w-full gap-3">
-                <div class="flex justify-center">
-                    <form class="gap-3">
+                <div class="flex flex-col justify-center gap-1">
+                    <form>
                         <input
                             bind:value={tempName}
                             type="text"
                             class="input input-primary input-bordered"
                             placeholder="Name"
                         />
-                        <button class="btn btn-info" on:click={addMember}>Add</button>
-                        <button class="btn btn-error" on:click={clearMember}>Clear</button>
+                        <button class="btn btn-info w-auto" on:click={addMember}>Add</button>
                     </form>
+                    <button class="btn btn-error w-auto" on:click={clearMember}>Clear</button>
                 </div>
                 <div class="flex justify-end">
                     <Members memberCount={members}/>
