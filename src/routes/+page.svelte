@@ -40,6 +40,16 @@
     }
 </script>
 
+<svelte:head>
+	<title>YouDontPayAlone</title>
+	<meta name="title" content="YouDontPayAlone" />
+	<meta name="description" content="You are not alone." />
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	/>
+</svelte:head>
+
 <main class="p-10">
     <div class="qrImage flex m-10" />
 	<div class="h-1/2 flex flex-col items-center justify-center gap-3">
@@ -90,8 +100,9 @@
                             class="input input-primary input-bordered"
                             placeholder="Name"
                         />
-                        <button class="btn btn-info w-auto" on:click={addMember}>Add</button>
+                        <button class="btn btn-info w-auto max-sm:hidden" on:click={addMember}>Add</button>
                     </form>
+                    <button class="btn btn-info w-auto sm:hidden" on:click={addMember}>Add</button>
                     <button class="btn btn-error w-auto" on:click={clearMember}>Clear</button>
                 </div>
                 <div class="flex justify-end">

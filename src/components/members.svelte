@@ -8,19 +8,19 @@
 			{#each memberCount as member}
 				<div class="avatar">
 					<div class="w-12">
-						<img src="/images/avatar.jpg" alt="avatar" />
+						<img src="/images/avatar.png" alt="avatar" />
 					</div>
 				</div>
 			{/each}
 		{:else}
 			<div class="avatar">
 				<div class="w-12">
-					<img src="/images/avatar.jpg" alt="avatar" />
+					<img src="/images/avatar.png" alt="avatar" />
 				</div>
 			</div>
 			<div class="avatar">
 				<div class="w-12">
-					<img src="/images/avatar.jpg" alt="avatar" />
+					<img src="/images/avatar.png" alt="avatar" />
 				</div>
 			</div>
 			<div class="avatar placeholder">
