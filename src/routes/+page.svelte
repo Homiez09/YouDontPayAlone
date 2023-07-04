@@ -51,8 +51,8 @@
 </svelte:head>
 
 <main class="p-10">
-    <div class="qrImage flex m-10" />
-	<div class="h-1/2 flex flex-col items-center justify-center gap-3">
+    <div class="h-1/2 flex flex-col items-center justify-center gap-3">
+        <div class="qrImage flex m-10 self-center" />
 		<input
 			bind:value={title}
 			type="text"
