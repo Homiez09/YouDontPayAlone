@@ -5,19 +5,32 @@
 
 	let title: string = '';
 	let price: number;
+	let amountResult: number;
 	let members: string[] = ['Me'];
 	let tempName: string = '';
 	let promptPayCode: string = '';
 	let error: boolean = false;
 	let chkGenerate: boolean = false;
+	let messageError: string;
 
 	const generateQR = async () => {
-		if (title === '' || price === undefined || promptPayCode === '') {
+		if (/* title === '' */false) {
 			error = true;
+			messageError = ', Title is empty';
 			return;
-		}
+		} else if (promptPayCode === '') {
+			error = true;
+			messageError = ', PromptPay Code is empty';
+			return;
+		} else if (price === undefined) {
+			error = true;
+			messageError = ', Price is empty';
+			return;
+		} 
+		
 		error = false;
 		const promptPayQR = await promptQR(promptPayCode, { amount: price / members.length });
+		amountResult = price / members.length;
 		const base64 = await QRCode.toDataURL(promptPayQR);
 		console.log(base64);
 		chkGenerate = true;
@@ -45,7 +58,7 @@
 		if (chkGenerate) {
 			generateQR();
 		}
-	}
+	};
 </script>
 
 <svelte:head>
@@ -62,12 +75,12 @@
 	<div class="h-1/2 flex flex-col items-center justify-center gap-3">
 		<h1 class="text-5xl">YouDontPayAlone</h1>
 		<div class="qrImage flex m-10 self-center" />
-		<input
+		<!-- <input
 			bind:value={title}
 			type="text"
 			class="input input-primary input-bordered md:w-1/2 w-full"
 			placeholder="Title"
-		/>
+		/> -->
 		<input
 			bind:value={promptPayCode}
 			type="text"
@@ -94,7 +107,7 @@
 						d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
 					/></svg
 				>
-				<span>Error! failed successfully.</span>
+				<span>Error!{messageError}.</span>
 			</div>
 		{/if}
 		<button class="btn btn-info" on:click={generateQR}>GENERATE</button>
@@ -118,16 +131,32 @@
 					<Members memberCount={members} />
 				</div>
 				{#each members as member, index}
-				<div class="grid h-8 rounded-sm border-dashed border-2 border-primary">
-					<div class="flex">
-						<div class="flex flex-col w-3/4 mx-2 justify-center">{member}</div>
+					<div class="flex flex-row">
+						<div class="grid h-8 rounded-sm border-dashed border-2 border-primary w-10/12">
+							<div class="flex">
+								<div class="flex flex-col w-2/4 mx-2">{member}</div>
+								<!-- svelte-ignore a11y-click-events-have-key-events -->
+								<!-- svelte-ignore a11y-no-static-element-interactions -->
+								<div
+									class="flex flex-col w-2/4 mx-2 hover:cursor-pointer text-error"
+									on:click={() => removeMember(index)}
+								>
+									<span class="self-end">
+										{amountResult !== undefined ? amountResult.toFixed(2) : 0}$
+									</span>
+								</div>
+							</div>
+						</div>
 						{#if member !== 'Me'}
-						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<!-- svelte-ignore a11y-no-static-element-interactions -->
-						<div class="flex flex-col w-1/4 mx-2 justify-center hover:cursor-pointer text-error" on:click={() => removeMember(index)} >remove</div>
+							<!-- svelte-ignore a11y-click-events-have-key-events -->
+							<!-- svelte-ignore a11y-no-static-element-interactions -->
+							<div class="flex flex-col w-2/12" on:click={() => removeMember(index)}>
+								<span class="flex self-center text-error hover:cursor-pointer">
+									del
+								</span>
+							</div>
 						{/if}
 					</div>
-				</div>
 				{/each}
 			</div>
 		</div>
