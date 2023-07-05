@@ -16,7 +16,7 @@
 			error = true;
 			return;
 		}
-        error = false;
+		error = false;
 		const promptPayQR = await promptQR(promptPayCode, { amount: price / members.length });
 		const base64 = await QRCode.toDataURL(promptPayQR);
 		console.log(base64);
@@ -30,14 +30,22 @@
 		if (name == '') return;
 		members = [...members, name];
 		tempName = '';
-        if (chkGenerate) {  
-            generateQR();
-        }
+		if (chkGenerate) {
+			generateQR();
+		}
 	};
 
-    const clearMember = () => {
-       members = ['Me']
-    }
+	const clearMember = () => {
+		members = ['Me'];
+	};
+
+	const removeMember = (index: number) => {
+		members.splice(index, 1);
+		members = [...members];
+		if (chkGenerate) {
+			generateQR();
+		}
+	}
 </script>
 
 <svelte:head>
@@ -50,9 +58,10 @@
 	/>
 </svelte:head>
 
-<main class="p-10">
-    <div class="h-1/2 flex flex-col items-center justify-center gap-3">
-        <div class="qrImage flex m-10 self-center" />
+<main class="p-10 select-none">
+	<div class="h-1/2 flex flex-col items-center justify-center gap-3">
+		<h1 class="text-5xl">YouDontPayAlone</h1>
+		<div class="qrImage flex m-10 self-center" />
 		<input
 			bind:value={title}
 			type="text"
@@ -89,26 +98,37 @@
 			</div>
 		{/if}
 		<button class="btn btn-info" on:click={generateQR}>GENERATE</button>
-        
-        <div class="flex flex-row mt-10">
-            <div class="flex flex-col w-full gap-3">
-                <div class="flex flex-col justify-center gap-1">
-                    <form>
-                        <input
-                            bind:value={tempName}
-                            type="text"
-                            class="input input-primary input-bordered"
-                            placeholder="Name"
-                        />
-                        <button class="btn btn-info w-auto max-sm:hidden" on:click={addMember}>Add</button>
-                    </form>
-                    <button class="btn btn-info w-auto sm:hidden" on:click={addMember}>Add</button>
-                    <button class="btn btn-error w-auto" on:click={clearMember}>Clear</button>
-                </div>
-                <div class="flex justify-end">
-                    <Members memberCount={members}/>
-                </div>
-            </div>
-        </div>
+
+		<div class="flex flex-row mt-10">
+			<div class="flex flex-col w-full gap-3">
+				<div class="flex flex-col justify-center gap-1">
+					<form>
+						<input
+							bind:value={tempName}
+							type="text"
+							class="input input-primary input-bordered"
+							placeholder="Name"
+						/>
+						<button class="btn btn-info w-auto max-sm:hidden" on:click={addMember}>Add</button>
+					</form>
+					<button class="btn btn-info w-auto sm:hidden" on:click={addMember}>Add</button>
+					<button class="btn btn-error w-auto" on:click={clearMember}>Clear</button>
+				</div>
+				<div class="flex justify-end">
+					<Members memberCount={members} />
+				</div>
+				{#each members as member, index}
+				<div class="grid h-8 rounded-sm border-dashed border-2 border-primary">
+					<div class="flex">
+						<div class="flex flex-col w-3/4 mx-2 justify-center">{member}</div>
+						{#if member !== 'Me'}
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<div class="flex flex-col w-1/4 mx-2 justify-center hover:cursor-pointer text-error" on:click={() => removeMember(index)}>remove</div>
+						{/if}
+					</div>
+				</div>
+				{/each}
+			</div>
+		</div>
 	</div>
 </main>
