@@ -123,7 +123,8 @@
 						<div class="flex flex-col w-3/4 mx-2 justify-center">{member}</div>
 						{#if member !== 'Me'}
 						<!-- svelte-ignore a11y-click-events-have-key-events -->
-						<div class="flex flex-col w-1/4 mx-2 justify-center hover:cursor-pointer text-error" on:click={() => removeMember(index)}>remove</div>
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<div class="flex flex-col w-1/4 mx-2 justify-center hover:cursor-pointer text-error" on:click={() => removeMember(index)} >remove</div>
 						{/if}
 					</div>
 				</div>
