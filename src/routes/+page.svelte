@@ -158,6 +158,10 @@
 									del
 								</span>
 							</div>
+						{:else}
+							<div class="flex flex-col w-2/12">
+								<span class="flex self-center text-stone-600">-</span>
+							</div>
 						{/if}
 					</div>
 				{/each}
