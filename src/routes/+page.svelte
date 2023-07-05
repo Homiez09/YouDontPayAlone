@@ -50,6 +50,9 @@
 
 	const clearMember = () => {
 		members = ['Me'];
+		if (chkGenerate) {
+			generateQR();
+		}
 	};
 
 	const removeMember = (index: number) => {
