@@ -14,7 +14,7 @@
 	let messageError: string;
 
 	const generateQR = async () => {
-		if (/* title === '' */false) {
+		if (/* title === '' */ false) {
 			error = true;
 			messageError = ', Title is empty';
 			return;
@@ -26,13 +26,13 @@
 			error = true;
 			messageError = ', Price is empty';
 			return;
-		} 
-		
+		}
+
 		error = false;
 		const promptPayQR = await promptQR(promptPayCode, { amount: price / members.length });
 		amountResult = price / members.length;
 		const base64 = await QRCode.toDataURL(promptPayQR);
-		console.log(base64);
+		//console.log(base64);
 		chkGenerate = true;
 		const qrImage = document.querySelector('.qrImage') as HTMLDivElement;
 		qrImage.innerHTML = `<img src="${base64}" alt="qrcode"/>`;
@@ -40,8 +40,16 @@
 
 	const addMember = () => {
 		const name = tempName;
+		let nameArr: string[];
+
 		if (name == '') return;
-		members = [...members, name];
+		
+		nameArr = name.split(',');
+		const splitted = nameArr.map((ele) => {
+			return ele.trim();
+		})
+
+		members = [...members, ...splitted];
 		tempName = '';
 		if (chkGenerate) {
 			generateQR();
@@ -123,7 +131,7 @@
 							bind:value={tempName}
 							type="text"
 							class="input input-primary input-bordered"
-							placeholder="Name"
+							placeholder="name, ..."
 						/>
 						<button class="btn btn-info w-auto max-sm:hidden" on:click={addMember}>Add</button>
 					</form>
@@ -154,9 +162,7 @@
 							<!-- svelte-ignore a11y-click-events-have-key-events -->
 							<!-- svelte-ignore a11y-no-static-element-interactions -->
 							<div class="flex flex-col w-2/12" on:click={() => removeMember(index)}>
-								<span class="flex self-center text-error hover:cursor-pointer">
-									del
-								</span>
+								<span class="flex self-center text-error hover:cursor-pointer"> del </span>
 							</div>
 						{:else}
 							<div class="flex flex-col w-2/12">
