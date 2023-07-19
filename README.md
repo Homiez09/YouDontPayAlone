@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/24440059-63c6-4941-8705-37b1b600436c/project/4d7b344a-44c2-4d9b-9f82-325cc55072bd.svg)](https://wakatime.com/badge/user/24440059-63c6-4941-8705-37b1b600436c/project/4d7b344a-44c2-4d9b-9f82-325cc55072bd)
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

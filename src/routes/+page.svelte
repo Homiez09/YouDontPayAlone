@@ -96,11 +96,10 @@
 			bind:value={promptPayCode}
 			type="text"
 			class="input input-primary input-bordered md:w-1/2 w-full"
-			placeholder="PromptPay Code"
-		/>
+			placeholder="PromptPay Code"/>
 		<input
 			bind:value={price}
-			type="number"
+			type="text"
 			class="input input-primary input-bordered md:w-1/2 w-full"
 			placeholder="Price"
 		/>
