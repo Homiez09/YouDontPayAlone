@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex flex-col">
-	{memberCount.length} member{memberCount.length > 1 ? "s" : ""}
+	{memberCount.length} people{memberCount.length > 1 ? "s" : ""}
 	<!-- <div class="avatar-group -space-x-6">
 		{#if memberCount.length < 3}
 			{#each memberCount as member}
