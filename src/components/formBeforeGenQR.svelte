@@ -6,7 +6,7 @@
 	let title: string = '';
 	let price: number;
 
-	let members: string[] = ['Me'];
+	let members: string[];
 	let tempName: string = '';
 	let promptPayCode: string = '';
 	let error: boolean = false;
@@ -60,7 +60,7 @@
 	};
 
 	const clearMember = () => {
-		members = ['Me'];
+		members = [];
 	};
 
 	const removeMember = (index: number) => {

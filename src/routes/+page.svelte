@@ -5,7 +5,7 @@
 	let title: string = $page.url.searchParams.get('title') || '';
 	let promptPayCode: string = $page.url.searchParams.get('promptPayCode') || '';
     let price = Number($page.url.searchParams.get('price')) || 0;
-    let members: string[] = $page.url.searchParams.get('members')?.split(',') || ['Me'];
+    let members: string[] = $page.url.searchParams.get('members')?.split(',') || [];
 	let tempName: string = '';
 
 	

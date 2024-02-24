@@ -2,6 +2,8 @@
 	import GenQR from '../../components/genQR.svelte';
 
 	import { page } from '$app/stores';
+	import { error } from '@sveltejs/kit';
+	import toast, { Toaster } from 'svelte-french-toast';
 	
 	let title: string = $page.url.searchParams.get('title') || '';
 	let promptPayCode: string = $page.url.searchParams.get('promptPayCode') || '';

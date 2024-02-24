@@ -18,4 +18,5 @@
 </script>
 
 <div class="qrImage flex m-10 self-center max-md:w-full" />
-<p class="prompt-700 text-4xl">{getURLeSearchParams.price / getURLeSearchParams.members.length} Baht</p>
+<p class="prompt-700 text-4xl">{getURLeSearchParams.price / getURLeSearchParams.members.length} Baht ({getURLeSearchParams.title})</p>
+<p class="prompt-300 text-2xl">Members: {getURLeSearchParams.members.join(', ')}</p>
