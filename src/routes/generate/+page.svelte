@@ -2,8 +2,6 @@
 	import GenQR from '../../components/genQR.svelte';
 
 	import { page } from '$app/stores';
-	import { error } from '@sveltejs/kit';
-	import toast, { Toaster } from 'svelte-french-toast';
 	
 	let title: string = $page.url.searchParams.get('title') || '';
 	let promptPayCode: string = $page.url.searchParams.get('promptPayCode') || '';
@@ -21,13 +19,9 @@
 	const shareButton = () => {
         navigator.share({
             title: title,
-            text: `PromptPay Code: ${promptPayCode}, Price: ${price}`,
+            text: `Total Price: ${price}`,
             url: window.location.href
         });
-		
-        toast.success('copy to clipboard', {
-	        position: "top-right"
-        })
     }
 
     const editButton = () => {
@@ -51,7 +45,6 @@
 				}
 			}/>
 			<div class="flex justify-center w-1/2 gap-3">
-				<Toaster />
 				<button class="btn btn-primary w-full" on:click={() => shareButton()}>Share</button>
 				<button class="btn btn-warning w-full" on:click={() => editButton()}>Edit</button>
 			</div>
