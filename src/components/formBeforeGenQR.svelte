@@ -48,7 +48,6 @@
         url.set('price', price.toString());
         url.set('members', members.join(','));
         history.pushState({}, '', `/?${url.toString()}`);
-
 	};
 
     const addMember = () => {
@@ -64,18 +63,15 @@
 
 		members = [...members, ...splitted];
 		tempName = '';
-		// generateQR
 	};
 
 	const clearMember = () => {
 		members = ['Me'];
-		// generateQR
 	};
 
 	const removeMember = (index: number) => {
 		members.splice(index, 1);
 		members = [...members];
-		// generateQR
 	};
 </script>
 
