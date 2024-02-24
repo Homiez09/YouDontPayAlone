@@ -26,7 +26,7 @@
 
 <main class="p-10 select-none">
 	<div class="h-1/2 flex flex-col items-center justify-center gap-3">
-		<h1 class="md:text-5xl text-4zl">YouDontPayAlone</h1>
+		<h1 class="md:text-5xl text-4xl">YouDontPayAlone</h1>
 		<FormBeforeGenQR getURLeSearchParams={
 			{
 				title: title,
