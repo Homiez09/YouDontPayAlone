@@ -1,5 +1,10 @@
 <script>
 	import '../app.css';
+	import Footer from '../components/footer.svelte';
 </script>
 
-<slot />
+<div class="h-screen">
+	<slot />
+	<Footer />
+</div>
+

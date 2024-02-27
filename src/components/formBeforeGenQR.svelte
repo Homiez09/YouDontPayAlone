@@ -73,19 +73,19 @@
 <input
     bind:value={title}
     type="text"
-    class="input {title == '' ? 'input-error' : 'input-primary'} input-bordered md:w-1/2 w-full"
-    placeholder="Title"
+    class="input {title == '' ? 'input-error' : ''} input-bordered md:w-1/2 w-full border-2 placeholder-gray-500 placeholder-opacity-25"
+    placeholder="Buffet"
 />
 <input
     bind:value={promptPayCode}
     type="text"
-    class="input {promptPayCode == '' ? 'input-error' : 'input-primary'} input-bordered md:w-1/2 w-full"
-    placeholder="PromptPay Code"/>
+    class="input {promptPayCode == '' ? 'input-error' : ''} input-bordered md:w-1/2 w-full border-2 placeholder-gray-500 placeholder-opacity-25"
+    placeholder="091xxxxxxx"/>
 <input
     bind:value={price}
     type="text"
-    class="input {price > 0 ? 'input-primary' : 'input-error'} input-bordered md:w-1/2 w-full"
-    placeholder="Price"
+    class="input {price > 0 ? '' : 'input-error'} input-bordered md:w-1/2 w-full border-2 placeholder-gray-500 placeholder-opacity-25"
+    placeholder="00.00"
 />
 
 <div class="flex flex-row md:w-1/2 w-full">
@@ -97,7 +97,7 @@
             <input
                 bind:value={tempName}
                 type="text"
-                class="input input-primary input-bordered w-full"
+                class="input {members.length > 0 ? 'input-white' : 'input-error'} input-info input-bordered w-full border-2 placeholder-gray-500 placeholder-opacity-25"
                 placeholder="John, Jane, Doe, ..."
             />
             <button class="btn btn-md btn-info w-auto font-700" on:click={addMember}>add</button>

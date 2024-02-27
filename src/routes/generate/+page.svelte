@@ -47,7 +47,7 @@
 				}
 			}/>
 			<div class="flex justify-center w-1/2 gap-3">
-				<button class="btn btn-primary w-full" on:click={() => shareButton()}>Share</button>
+				<button class="btn btn-info w-full" on:click={() => shareButton()}>Share</button>
 				<button class="btn btn-warning w-full" on:click={() => editButton()}>Edit</button>
 			</div>
 		{/if}
