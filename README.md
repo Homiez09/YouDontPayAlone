@@ -1,46 +1,7 @@
 [![wakatime](https://wakatime.com/badge/user/24440059-63c6-4941-8705-37b1b600436c/project/4d7b344a-44c2-4d9b-9f82-325cc55072bd.svg)](https://wakatime.com/badge/user/24440059-63c6-4941-8705-37b1b600436c/project/4d7b344a-44c2-4d9b-9f82-325cc55072bd)
 
 # ScreenShot
-![image](https://drive.google.com/uc?export=view&id=1dU6wdpZI69udvErUH_k6iBnjQAazerEB)
-
-![image](https://drive.google.com/uc?export=view&id=1VSqto98wACRb4SSu0-OUpXCZG-0CfztN)
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/77825705/322123044-bc03aa80-ce74-4713-9b8e-6e42d2040429.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240412%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240412T195932Z&X-Amz-Expires=300&X-Amz-Signature=372a0c5b6e404fd9941663f4a7cd773b4ae077a3d84c7d8cf055aee490c45822&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=0)
 
 
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/77825705/322123285-4471c36d-f5fe-4f60-99e9-6e9a6a1ed074.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240412%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240412T200015Z&X-Amz-Expires=300&X-Amz-Signature=481df99b05cef90ff9d18719410ea222c43f0c54ef77d3dd6d04dc92ac75f51b&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=0)
